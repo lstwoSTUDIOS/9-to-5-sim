@@ -1,53 +1,84 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Game.Modifiers;
 using Jobs;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public static MainMenuManager Instance;
+
+    public static int weekDayCount = 7;
+    public static int currentDay = 0;
+    
     public TextMeshProUGUI moneyText, jobXPText, jobText;
-    public GameObject resumeRoot;
+    public GameObject modifiersRoot;
     public GameObject jobListRoot;
-    public GameObject resumeEntryPrefab;
+    public GameObject modifierItemPrefab;
     public GameObject jobItemPrefab;
     public JobScriptableObject[] jobs;
     public Image background;
 
     private void Awake()
     {
+        ModifierManager.LoadCurrentModifiers();
+        
+        Instance = this;
+        
         Time.timeScale = 1f;
         
-        PlayerDataManager.jobs = jobs.ToDictionary(x => x.id);
+        PlayerDataManager.jobs = jobs.ToDictionary(x => x.data.id);
         PlayerDataManager.LoadData();
         
+        currentDay = 0;
+
+        foreach (var entry in PlayerDataManager.playerData.resumeEntries)
+        {
+            currentDay += entry.duration;
+        }
+    }
+
+    private void Start()
+    {
+        Refresh();
+    }
+
+    private void Refresh()
+    {
         var data = PlayerDataManager.playerData;
         moneyText.text = $"Money: ${data.money}";
         jobXPText.text = $"Job XP: {data.jobXP} XP";
         jobText.text = $"Current Job: {PlayerDataManager.jobs[data.currentJob].name}";
 
-        var randJobId = data.resumeEntries.Where(x => !PlayerDataManager.jobs[x.jobID].isHidden).OrderBy(x => Guid.NewGuid()).FirstOrDefault()?.jobID;
+        var randJobId = data.resumeEntries.Where(x => !PlayerDataManager.jobs[x.jobID].data.isHidden).OrderBy(x => Guid.NewGuid()).FirstOrDefault()?.jobID;
         
         if (randJobId != null)
         {
             var randJob = PlayerDataManager.jobs[randJobId];
-            var jobImg = randJob.screenshot;
+            var jobImg = randJob.data.screenshot;
             background.sprite = jobImg;
         }
 
+        foreach (var modifier in ModifierManager.currentModifiers)
+        {
+            var modifierItemObj = Instantiate(modifierItemPrefab, modifiersRoot.transform);
+            modifierItemObj.GetComponentInChildren<TextMeshProUGUI>().text = modifier.Name;
+        }
+
+        currentDay = 0;
+
         foreach (var entry in data.resumeEntries)
         {
-            var entryObj = Instantiate(resumeEntryPrefab, resumeRoot.transform);
-            var entryItem = entryObj.GetComponent<JobResumeItem>();
-
-            entryItem.entry = entry;
+            currentDay += entry.duration;
         }
         
         foreach (var job in jobs)
         {
-            if (job.isHidden)
+            if (job.data.isHidden)
             {
                 continue;
             }
@@ -55,12 +86,17 @@ public class MainMenuManager : MonoBehaviour
             var jobObj = Instantiate(jobItemPrefab, jobListRoot.transform);
             var jobItem = jobObj.GetComponent<JobItem>();
 
-            jobItem.job = job;
+            jobItem.Job = job;
         }
     }
 
     public void StartShift()
     {
         PlayerDataManager.jobs[PlayerDataManager.playerData.currentJob].StartShift();
+    }
+
+    public void RefreshJob()
+    {
+        jobText.text = $"Current Job: {PlayerDataManager.jobs[PlayerDataManager.playerData.currentJob].data.name}";
     }
 }

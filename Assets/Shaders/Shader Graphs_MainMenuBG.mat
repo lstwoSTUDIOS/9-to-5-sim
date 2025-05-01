@@ -45,9 +45,9 @@ Material:
     - _Distortion_Intensity: 0.01
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 0.025
+    - _Speed: 0.5
     m_Colors:
-    - _Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0}
+    - _Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 0}
     - _GlowColor: {r: 1.4980389, g: 0, b: 0, a: 0}
     - _Glow_Color: {r: 1.4980392, g: 0, b: 0, a: 0}
     - _OverlayColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 0}

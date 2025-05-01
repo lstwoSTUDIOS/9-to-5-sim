@@ -14,7 +14,8 @@ public abstract class BaseJob : MonoBehaviour
     private static readonly int Property = Animator.StringToHash("Pop Up Stats Page");
     public List<BaseJobObjective> objectives = new();
     public float jobTime;
-    public JobScriptableObject job;
+    [NonSerialized]
+    public JobScriptableObject.JobData job;
     public float currentWage;
 
     public TextMeshProUGUI objectivesText;
@@ -35,6 +36,7 @@ public abstract class BaseJob : MonoBehaviour
 
     private void Awake()
     {
+        jobTime = 0;
         currentWage = job.baseWage;
     }
 
@@ -70,7 +72,7 @@ public abstract class BaseJob : MonoBehaviour
         
         timeText.text = $"{(Hour < 10 ? "0" : "" )}{Hour}:{(Minute < 10 ? "0" : "" )}{Minute}";
         job.baseWage = Mathf.Round(job.baseWage * 100f) / 100f;
-        payPerHourText.text = $"Current Wage: ${job.baseWage}{(job.baseWage % 0.01f == 0 ? "0" : "")}";
+        payPerHourText.text = $"Current Wage: ${currentWage}{(currentWage % 0.01f == 0 ? "0" : "")}";
     }
 
     private static void GUIObjective(BaseJobObjective objective, ref string fullText, int indentation)

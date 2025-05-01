@@ -8,6 +8,9 @@ public class PlayerData
     public int jobXP = 0;
     public string currentJob = "unemployed";
     public List<ResumeEntry> resumeEntries = new();
+    public int currentDayCount = 0;
+    public int lastPaidBillsDay = -1;
+    public List<string> modifiers = new();
 }
 
 [Serializable]

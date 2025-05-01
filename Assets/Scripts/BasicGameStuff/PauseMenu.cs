@@ -15,6 +15,8 @@ public class PauseMenu : MonoBehaviour
     private bool invertY;
     private readonly List<Resolution> newResolutions = new();
 
+    public bool disableOnStart = true;
+
     private Resolution res;
     private Resolution[] resolutions;
 
@@ -24,7 +26,11 @@ public class PauseMenu : MonoBehaviour
     public void Awake()
     {
         Instance = this;
-        gameObject.SetActive(false);
+
+        if (disableOnStart)
+        {
+            gameObject.SetActive(false);
+        }
 
         sensitivitySlider.onValueChanged.AddListener(value =>
         {
@@ -78,13 +84,14 @@ public class PauseMenu : MonoBehaviour
         var sensitivityX = invertX ? -sensitivity : sensitivity;
         var sensitivityY = invertY ? -sensitivity : sensitivity;
 
-        PlayerController.Instance.xSensitivity = (float)sensitivityX;
-        PlayerController.Instance.ySensitivity = (float)sensitivityY;
+        PlayerController.xSensitivity = (float)sensitivityX;
+        PlayerController.ySensitivity = (float)sensitivityY;
     }
 
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+        Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
     }
 
     public void SetResolution(int index)

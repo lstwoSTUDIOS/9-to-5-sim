@@ -6,6 +6,9 @@ namespace BasicGameStuff
     public class PlayerController : MonoBehaviour
     {
         public static PlayerController Instance { get; private set; }
+        
+        public static float xSensitivity = 0.2f;
+        public static float ySensitivity = 0.2f;
 
         public static bool MouseCaptured
         {
@@ -30,10 +33,6 @@ namespace BasicGameStuff
         public float bunnyhopSpeed = 0.25f;
         public LayerMask groundMask;
         public LayerMask pickupMask;
-
-        [Header("Camera Settings")]
-        public float xSensitivity = 0.2f;
-        public float ySensitivity = 0.2f;
 
         [Header("Feature Set")]
         public bool allowJumping = true;

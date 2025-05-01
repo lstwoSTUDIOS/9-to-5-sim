@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b23fd60bf50c2469786ae3a0f54133, type: 3}
   m_Name: CashierJob
   m_EditorClassIdentifier: 
-  name: Cashier
-  id: cashier
-  scene:
-    sceneAsset: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
-    scenePath: Assets/Scenes/CashierJob.unity
-  xpReward: 15
-  baseWage: 10.7
-  jobDuration: 480
+  data:
+    isHidden: 0
+    name: Cashier
+    id: cashier
+    scene:
+      sceneAsset: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
+      scenePath: Assets/Scenes/CashierJob.unity
+    xpReward: 10
+    baseWage: 10.7
+    shiftLength: 480
+    screenshot: {fileID: 21300000, guid: cbaa083285f3680448ea525e6ca340a9, type: 3}
+    xpRequired: 0

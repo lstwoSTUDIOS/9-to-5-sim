@@ -1205,7 +1205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1032845390072088078}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1071801184190935437}
+        m_TargetAssemblyTypeName: JobItem, Game
+        m_MethodName: ApplyToJob
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &491264466174849359
 MonoBehaviour:
   m_ObjectHideFlags: 0
