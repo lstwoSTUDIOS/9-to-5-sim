@@ -14,7 +14,7 @@ public class MainMenuManager : MonoBehaviour
     
     public static MainMenuManager Instance;
 
-    public static int weekDayCount = 7;
+    public static int weekDayCount = 1;
     public static int currentDay = 0;
     
     public TextMeshProUGUI moneyText, jobXPText, jobText;

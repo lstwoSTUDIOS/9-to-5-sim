@@ -35,10 +35,6 @@ public abstract class BaseJob : MonoBehaviour
 
     protected virtual void Awake()
     {
-        Debug.Log("jhsdfl");
-
-        Debug.Log(job.ToString());
-        Debug.Log(job.shiftLength);
         jobTime = 0;
         currentWage = job.baseWage;
     }

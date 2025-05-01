@@ -19,7 +19,11 @@ public static class PlayerDataManager
 
     public static void LoadData()
     {
-        var json = File.ReadAllText(_saveDataPath);
-        playerData = JsonUtility.FromJson<PlayerData>(json);
+        try
+        {
+            var json = File.ReadAllText(_saveDataPath);
+            playerData = JsonUtility.FromJson<PlayerData>(json);
+        } 
+        catch {}
     }
 }
