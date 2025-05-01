@@ -4014,7 +4014,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectives: []
   jobTime: 0
-  job: {fileID: 11400000, guid: f74240f402e85804f9431bccc89b2462, type: 2}
   currentWage: 0
   objectivesText: {fileID: 1390139632}
   objectivesPanel: {fileID: 498094551}
@@ -4602,6 +4601,7 @@ MonoBehaviour:
   invertMouseY: {fileID: 0}
   invertMouseX: {fileID: 0}
   resolutionDropdown: {fileID: 0}
+  disableOnStart: 1
 --- !u!114 &1558041108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5401,8 +5401,6 @@ MonoBehaviour:
   pickupMask:
     serializedVersion: 2
     m_Bits: 64
-  xSensitivity: 10
-  ySensitivity: 10
   allowJumping: 1
   allowLookUp: 1
   enableGrabbing: 1
@@ -8821,7 +8819,7 @@ RectTransform:
   m_Father: {fileID: 7248065578890265174}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.25, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8965,8 +8963,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8700394873030919841}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.25, y: 0}
-  m_AnchorMax: {x: 0.25, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8986,6 +8984,7 @@ MonoBehaviour:
   invertMouseY: {fileID: 8698793519880021599}
   invertMouseX: {fileID: 5110149672958649419}
   resolutionDropdown: {fileID: 299542877301704020}
+  disableOnStart: 1
 --- !u!222 &8512143179491373961
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9012,7 +9011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &8636468958234274435
 CanvasRenderer:
   m_ObjectHideFlags: 0

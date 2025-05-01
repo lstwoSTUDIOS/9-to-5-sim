@@ -10,6 +10,8 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public static JobScriptableObject.JobData CurrentJobData;
+    
     public static MainMenuManager Instance;
 
     public static int weekDayCount = 7;
@@ -52,9 +54,9 @@ public class MainMenuManager : MonoBehaviour
         var data = PlayerDataManager.playerData;
         moneyText.text = $"Money: ${data.money}";
         jobXPText.text = $"Job XP: {data.jobXP} XP";
-        jobText.text = $"Current Job: {PlayerDataManager.jobs[data.currentJob].name}";
+        jobText.text = $"Current Job: {PlayerDataManager.jobs[data.currentJob].data.name}";
 
-        var randJobId = data.resumeEntries.Where(x => !PlayerDataManager.jobs[x.jobID].data.isHidden).OrderBy(x => Guid.NewGuid()).FirstOrDefault()?.jobID;
+        var randJobId = jobs.Where(x => !PlayerDataManager.jobs[x.data.id].data.isHidden).OrderBy(x => Guid.NewGuid()).FirstOrDefault()?.data.id;
         
         if (randJobId != null)
         {
@@ -92,7 +94,9 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartShift()
     {
-        PlayerDataManager.jobs[PlayerDataManager.playerData.currentJob].StartShift();
+        var currentJob = PlayerDataManager.jobs[PlayerDataManager.playerData.currentJob];
+        CurrentJobData = ModifierManager.ApplyAllModifiers(currentJob.data);
+        currentJob.StartShift();
     }
 
     public void RefreshJob()

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Jobs;
 
 namespace Game.Modifiers
 {
@@ -31,6 +32,18 @@ namespace Game.Modifiers
             {
                 currentModifiers.Add(idToModifierMap[modifierId]);
             }
+        }
+
+        public static JobScriptableObject.JobData ApplyAllModifiers(JobScriptableObject.JobData jobData)
+        {
+            LoadCurrentModifiers();
+            
+            foreach (var modifier in currentModifiers)
+            {
+                modifier.SetupModifier(ref jobData);
+            }
+            
+            return jobData;
         }
     }
 }

@@ -23,12 +23,13 @@ public class CashierJob : BaseJob
     [NonSerialized]
     public CashierJobCustomerObjective currentCustomerObjective;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Instance = this;
     }
 
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
         StartCoroutine(DecreasePay());

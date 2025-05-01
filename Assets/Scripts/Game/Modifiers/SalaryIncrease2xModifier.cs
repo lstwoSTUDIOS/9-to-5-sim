@@ -7,10 +7,9 @@ namespace Game.Modifiers
         public override string Id => "SalaryIncreaseModifier";
         public override string Name => "Salary Increase (x2)";
 
-        public override JobScriptableObject.JobData SetupModifier(JobScriptableObject.JobData job)
+        public override void SetupModifier(ref JobScriptableObject.JobData job)
         {
             job.baseWage *= 2;
-            return job;
         }
     }
 }
