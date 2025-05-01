@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b23fd60bf50c2469786ae3a0f54133, type: 3}
+  m_Name: Unemployed
+  m_EditorClassIdentifier: 
+  isHidden: 1
+  name: Unemployed
+  id: unemployed
+  scene:
+    sceneAsset: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
+    scenePath: Assets/Scenes/CashierJob.unity
+  xpReward: 0
+  baseWage: 0
+  shiftLength: 30
+  screenshot: {fileID: 0}
+  xpRequired: 0
