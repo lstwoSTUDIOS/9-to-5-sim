@@ -58,7 +58,7 @@ public abstract class BaseJob : MonoBehaviour
             return;
         }
         
-        jobTime += Time.deltaTime;
+        jobTime += Time.deltaTime * 8;
         
         var text = "";
         
@@ -98,7 +98,7 @@ public abstract class BaseJob : MonoBehaviour
 
         statsWageText.text = $"Wage (Pay per Hour): ${currentWage}";
         statsMoneyText.text = $"Money Earned: ${moneyMade}";
-        statsXpText.text = $"Xp Reward: ${xpMade}";
+        statsXpText.text = $"Xp Reward: {xpMade} XP";
 
         var data = PlayerDataManager.playerData;
 

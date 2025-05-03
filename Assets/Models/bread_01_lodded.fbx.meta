@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 85f557fe055d97c44bd033c83ce09abc
+guid: 2c79f248ba0b2054e8a7e1590c4186dc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 9184a6d535283d747a96cef8300282a4, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -37,7 +32,13 @@ ModelImporter:
     clipAnimations: []
     isReadable: 0
   meshes:
-    lODScreenPercentages: []
+    lODScreenPercentages:
+    - 0.25
+    - 0.125
+    - 0.0625
+    - 0.03125
+    - 0.015625
+    - 0.01
     globalScale: 1
     meshCompression: 0
     addColliders: 0

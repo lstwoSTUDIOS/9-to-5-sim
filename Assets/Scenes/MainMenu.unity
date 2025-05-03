@@ -2530,9 +2530,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1966371357}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 25
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5440,7 +5440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 018631d1969f4152a8eb753996c059d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weekDayCount: 7
   moneyText: {fileID: 494516765}
   jobXPText: {fileID: 214677330}
   jobText: {fileID: 2011009699}

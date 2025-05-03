@@ -4030,7 +4030,6 @@ MonoBehaviour:
   itemPrefabs:
   - {fileID: 1162599019772827069, guid: de79a5d6bedc8ed42b39e799aa82681d, type: 3}
   - {fileID: 1288295772155890244, guid: d30bc3a8cad7dbf43bbe6bd8e91f7683, type: 3}
-  - {fileID: 359727998345527698, guid: 8531e18e76731804f8ca784df02cd86d, type: 3}
   - {fileID: 9115285212041076542, guid: 89ed39cdc21bbef438acf048b427f9a7, type: 3}
   - {fileID: 3837340898928300986, guid: 2237eed52c788ea42b9f3a16ee765713, type: 3}
   - {fileID: 3845932044981565105, guid: 1f547bf11ed37c447abe1791eade1244, type: 3}
@@ -8010,9 +8009,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8458651755746431523}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 200
+  m_MaxValue: 25
   m_WholeNumbers: 0
-  m_Value: 50
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

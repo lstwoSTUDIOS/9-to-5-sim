@@ -35,20 +35,27 @@ public class PauseMenu : MonoBehaviour
         sensitivitySlider.onValueChanged.AddListener(value =>
         {
             sensitivity = value;
+            PlayerPrefs.SetFloat("sensitivity", value);
             UpdateSensitivity();
         });
 
         invertMouseX.onValueChanged.AddListener(b =>
         {
             invertX = b;
+            PlayerPrefs.SetInt("invertX", invertX ? 1 : 0);
             UpdateSensitivity();
         });
 
         invertMouseY.onValueChanged.AddListener(b =>
         {
             invertY = b;
+            PlayerPrefs.SetInt("invertY", invertY ? 1 : 0);
             UpdateSensitivity();
         });
+        
+        sensitivitySlider.value = PlayerPrefs.GetFloat("sensitivity");
+        invertMouseX.isOn = PlayerPrefs.GetInt("invertX") == 1;
+        invertMouseY.isOn = PlayerPrefs.GetInt("invertY") == 1;
     }
 
     private void Start()
